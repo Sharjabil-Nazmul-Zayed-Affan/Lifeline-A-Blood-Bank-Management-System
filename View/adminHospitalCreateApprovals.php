@@ -1,13 +1,7 @@
 <?php
-// ==========================================
-// View/adminHospitalCreateApprovals.php
-// Hospital Account Creation Approval List
-// ==========================================
-
 session_start();
 require_once '../Model/adminModel.php';
 
-// Auth Guard
 if (!isset($_SESSION['admin_user'])) {
     if (isset($_COOKIE['admin_user'])) {
         $_SESSION['admin_user'] = $_COOKIE['admin_user'];
@@ -30,7 +24,6 @@ $pendingRequests = getPendingCreateRequests($conn);
 </head>
 <body>
 
-    <!-- Navbar -->
     <header class="navbar">
         <h2>Lifeline Admin Portal</h2>
         <div class="user-info">
@@ -80,7 +73,6 @@ $pendingRequests = getPendingCreateRequests($conn);
                                 <td><?php echo htmlspecialchars($req['H_Phone_Number']); ?></td>
                                 <td><?php echo htmlspecialchars($req['Request_Date']); ?></td>
                                 <td>
-                                    <!-- View Approval Button taking to View Account Approval Page -->
                                     <a href="adminViewCreateApproval.php?id=<?php echo urlencode($req['Request_ID']); ?>" class="btn btn-view">
                                         View Approval
                                     </a>
@@ -94,7 +86,6 @@ $pendingRequests = getPendingCreateRequests($conn);
 
     </div>
 
-    <!-- External AJAX JavaScript -->
     <script src="js/adminAjax.js"></script>
 
 </body>

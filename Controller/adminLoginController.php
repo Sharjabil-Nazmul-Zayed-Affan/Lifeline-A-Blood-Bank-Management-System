@@ -1,9 +1,4 @@
 <?php
-// ==========================================
-// Controller/adminLoginController.php
-// Supports both AJAX and standard POST login
-// ==========================================
-
 session_start();
 require_once '../Model/adminModel.php';
 
@@ -16,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = isset($_POST['password']) ? trim($_POST['password']) : '';
     $remember = isset($_POST['remember_me']) && ($_POST['remember_me'] == '1' || $_POST['remember_me'] == 'on');
 
-    // 1. Validation - check empty
     if (empty($username) || empty($password)) {
         if ($isAjax) {
             header('Content-Type: application/json');
@@ -28,16 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // 2. Validate against Database (Model)
     $admin = checkAdminLogin($conn, $username, $password);
 
     if ($admin) {
-        // Set Session
         $_SESSION['admin_user'] = $admin['A_Username'];
 
-        // Handle Cookie (Remember Me)
         if ($remember) {
-            setcookie('admin_user', $admin['A_Username'], time() + (86400 * 7), "/"); // 7 days
+            setcookie('admin_user', $admin['A_Username'], time() + (86400 * 7), "/");
         } else {
             setcookie('admin_user', '', time() - 3600, "/");
         }

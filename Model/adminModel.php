@@ -1,11 +1,6 @@
 <?php
-// ==========================================
-// Model/adminModel.php - Database Operations
-// ==========================================
-
 require_once 'adminDb.php';
 
-// 1. Check Admin Login Credentials
 function checkAdminLogin($conn, $username, $password) {
     $username = mysqli_real_escape_string($conn, trim($username));
     $password = mysqli_real_escape_string($conn, trim($password));
@@ -19,7 +14,6 @@ function checkAdminLogin($conn, $username, $password) {
     return false;
 }
 
-// 2. Get Count of Pending Account Create Requests
 function getPendingCreateCount($conn) {
     $query = "SELECT COUNT(*) AS total FROM hospital_registration_request WHERE Request_Status = 'Pending'";
     $result = mysqli_query($conn, $query);
@@ -30,7 +24,6 @@ function getPendingCreateCount($conn) {
     return 0;
 }
 
-// 3. Get Count of Pending Profile Edit Requests
 function getPendingEditCount($conn) {
     $query = "SELECT COUNT(*) AS total FROM hospital_update_request WHERE Request_Status = 'Pending'";
     $result = mysqli_query($conn, $query);
@@ -41,7 +34,6 @@ function getPendingEditCount($conn) {
     return 0;
 }
 
-// 4. Get List of All Approved Hospitals
 function getApprovedHospitals($conn) {
     $query = "SELECT * FROM hospital ORDER BY Created_Date DESC";
     $result = mysqli_query($conn, $query);
@@ -54,7 +46,6 @@ function getApprovedHospitals($conn) {
     return $hospitals;
 }
 
-// 5. Get List of Pending Hospital Create Requests
 function getPendingCreateRequests($conn) {
     $query = "SELECT * FROM hospital_registration_request WHERE Request_Status = 'Pending' ORDER BY Request_Date DESC";
     $result = mysqli_query($conn, $query);
@@ -67,7 +58,6 @@ function getPendingCreateRequests($conn) {
     return $requests;
 }
 
-// 6. Get Single Create Request by Request_ID
 function getCreateRequestById($conn, $id) {
     $id = intval($id);
     $query = "SELECT * FROM hospital_registration_request WHERE Request_ID = $id";
@@ -78,12 +68,10 @@ function getCreateRequestById($conn, $id) {
     return false;
 }
 
-// 7. Approve Hospital Account Creation (Inserts into `hospital` table)
 function approveHospitalCreateRequest($conn, $requestId, $adminUsername) {
     $requestId = intval($requestId);
     $adminUsername = mysqli_real_escape_string($conn, $adminUsername);
 
-    // Fetch the request data first
     $req = getCreateRequestById($conn, $requestId);
     if (!$req) {
         return false;
@@ -95,12 +83,10 @@ function approveHospitalCreateRequest($conn, $requestId, $adminUsername) {
     $phone = mysqli_real_escape_string($conn, $req['H_Phone_Number']);
     $addr  = mysqli_real_escape_string($conn, $req['H_Address']);
 
-    // Check if hospital with this TIN already exists
     $checkQuery = "SELECT * FROM hospital WHERE H_TIN = '$tin'";
     $checkResult = mysqli_query($conn, $checkQuery);
 
     if (mysqli_num_rows($checkResult) > 0) {
-        // If exists, activate & update
         $insertQuery = "UPDATE hospital SET 
                         H_Name = '$name', 
                         H_Email = '$email', 
@@ -109,7 +95,6 @@ function approveHospitalCreateRequest($conn, $requestId, $adminUsername) {
                         Is_Active = 1 
                         WHERE H_TIN = '$tin'";
     } else {
-        // Insert new approved hospital
         $insertQuery = "INSERT INTO hospital (H_TIN, H_Name, H_Email, H_Phone_Number, H_Address, Is_Active) 
                         VALUES ('$tin', '$name', '$email', '$phone', '$addr', 1)";
     }
@@ -117,7 +102,6 @@ function approveHospitalCreateRequest($conn, $requestId, $adminUsername) {
     $insertSuccess = mysqli_query($conn, $insertQuery);
 
     if ($insertSuccess) {
-        // Update request status to Approved
         $updateReq = "UPDATE hospital_registration_request 
                       SET Request_Status = 'Approved', 
                           Review_Date = NOW(), 
@@ -128,7 +112,6 @@ function approveHospitalCreateRequest($conn, $requestId, $adminUsername) {
     return false;
 }
 
-// 8. Reject Hospital Account Creation
 function rejectHospitalCreateRequest($conn, $requestId, $adminUsername, $reason = "Rejected by admin") {
     $requestId = intval($requestId);
     $adminUsername = mysqli_real_escape_string($conn, $adminUsername);
@@ -143,7 +126,6 @@ function rejectHospitalCreateRequest($conn, $requestId, $adminUsername, $reason 
     return mysqli_query($conn, $updateReq);
 }
 
-// 9. Get List of Pending Hospital Edit Requests
 function getPendingEditRequests($conn) {
     $query = "SELECT ur.*, h.H_Name AS Current_H_Name 
               FROM hospital_update_request ur 
@@ -160,7 +142,6 @@ function getPendingEditRequests($conn) {
     return $requests;
 }
 
-// 10. Get Single Edit Request by Update_Request_ID
 function getEditRequestById($conn, $id) {
     $id = intval($id);
     $query = "SELECT ur.*, 
@@ -178,7 +159,6 @@ function getEditRequestById($conn, $id) {
     return false;
 }
 
-// 11. Approve Hospital Profile Edit
 function approveHospitalEditRequest($conn, $requestId, $adminUsername) {
     $requestId = intval($requestId);
     $adminUsername = mysqli_real_escape_string($conn, $adminUsername);
@@ -194,7 +174,6 @@ function approveHospitalEditRequest($conn, $requestId, $adminUsername) {
     $newPhone = mysqli_real_escape_string($conn, $req['New_H_Phone_Number']);
     $newAddr  = mysqli_real_escape_string($conn, $req['New_H_Address']);
 
-    // Update the hospital table
     $updateHospital = "UPDATE hospital 
                        SET H_Name = '$newName', 
                            H_Email = '$newEmail', 
@@ -204,7 +183,6 @@ function approveHospitalEditRequest($conn, $requestId, $adminUsername) {
     $hospitalUpdated = mysqli_query($conn, $updateHospital);
 
     if ($hospitalUpdated) {
-        // Update request status to Approved
         $updateReq = "UPDATE hospital_update_request 
                       SET Request_Status = 'Approved', 
                           Review_Date = NOW(), 
@@ -215,7 +193,6 @@ function approveHospitalEditRequest($conn, $requestId, $adminUsername) {
     return false;
 }
 
-// 12. Reject Hospital Profile Edit
 function rejectHospitalEditRequest($conn, $requestId, $adminUsername, $reason = "Rejected by admin") {
     $requestId = intval($requestId);
     $adminUsername = mysqli_real_escape_string($conn, $adminUsername);
@@ -230,17 +207,14 @@ function rejectHospitalEditRequest($conn, $requestId, $adminUsername, $reason = 
     return mysqli_query($conn, $updateReq);
 }
 
-// 13. Delete Hospital and all associated records safely
 function deleteHospital($conn, $tin) {
     $tin = mysqli_real_escape_string($conn, $tin);
 
-    // Clean up dependent child rows to prevent foreign key errors
     mysqli_query($conn, "DELETE FROM reservation WHERE H_TIN = '$tin'");
     mysqli_query($conn, "DELETE FROM blood_bag WHERE H_TIN = '$tin'");
     mysqli_query($conn, "UPDATE donor SET Last_Donation_Hospital_TIN = NULL WHERE Last_Donation_Hospital_TIN = '$tin'");
     mysqli_query($conn, "DELETE FROM hospital_update_request WHERE H_TIN = '$tin'");
 
-    // Delete the hospital
     $deleteHospital = "DELETE FROM hospital WHERE H_TIN = '$tin'";
     return mysqli_query($conn, $deleteHospital);
 }

@@ -1,8 +1,3 @@
-/* ==========================================
-   View/css/adminStyle.css
-   Simple, clean styling for Admin Portal
-   ========================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +11,6 @@ body {
     min-height: 100vh;
 }
 
-/* --- Top Navigation Bar --- */
 .navbar {
     background-color: #990000;
     color: #ffffff;
@@ -58,14 +52,12 @@ body {
     background-color: #ffe6e6;
 }
 
-/* --- Main Layout Container --- */
 .container {
     max-width: 1000px;
     margin: 30px auto;
     padding: 0 20px;
 }
 
-/* --- Alerts & Notifications --- */
 .alert {
     padding: 12px 18px;
     margin-bottom: 20px;
@@ -86,7 +78,6 @@ body {
     border: 1px solid #f5c6cb;
 }
 
-/* --- Login Form Box --- */
 .login-box {
     max-width: 400px;
     margin: 80px auto;
@@ -147,7 +138,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* --- Search Bar --- */
 .search-bar {
     margin-bottom: 15px;
 }
@@ -165,7 +155,6 @@ body {
     outline: none;
 }
 
-/* --- Dashboard Stat / Action Cards --- */
 .action-cards {
     display: flex;
     gap: 20px;
@@ -210,7 +199,6 @@ body {
     background-color: #5cb85c;
 }
 
-/* --- Tables & Cards --- */
 .card {
     background: #ffffff;
     border-radius: 8px;
@@ -256,7 +244,6 @@ tr:hover {
     background-color: #fdf2f2;
 }
 
-/* --- Buttons --- */
 .btn {
     display: inline-block;
     padding: 8px 14px;
@@ -337,7 +324,6 @@ tr:hover {
     width: 100%;
 }
 
-/* --- Details Box for View Approval Pages --- */
 .details-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -373,7 +359,6 @@ tr:hover {
     margin-top: 25px;
 }
 
-/* --- Comparison Table for Profile Edit Approval --- */
 .compare-table {
     width: 100%;
     margin-top: 15px;

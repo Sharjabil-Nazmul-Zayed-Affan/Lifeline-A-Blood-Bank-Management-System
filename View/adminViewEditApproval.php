@@ -1,13 +1,7 @@
 <?php
-// ==========================================
-// View/adminViewEditApproval.php
-// View Details of Hospital Profile Edit Request
-// ==========================================
-
 session_start();
 require_once '../Model/adminModel.php';
 
-// Auth Guard
 if (!isset($_SESSION['admin_user'])) {
     if (isset($_COOKIE['admin_user'])) {
         $_SESSION['admin_user'] = $_COOKIE['admin_user'];
@@ -37,7 +31,6 @@ if (!$request) {
 </head>
 <body>
 
-    <!-- Navbar -->
     <header class="navbar">
         <h2>Lifeline Admin Portal</h2>
         <div class="user-info">
@@ -49,7 +42,6 @@ if (!$request) {
 
     <div class="container">
 
-        <!-- Notification container for AJAX -->
         <div id="ajaxAlert" style="display: none;"></div>
 
         <div class="card">
@@ -58,7 +50,6 @@ if (!$request) {
                 <span class="badge">Status: <?php echo htmlspecialchars($request['Request_Status']); ?></span>
             </div>
 
-            <!-- Hospital Identifier & TIN Verification -->
             <div class="details-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 20px;">
                 <div class="detail-item">
                     <label>Hospital TIN</label>
@@ -74,7 +65,6 @@ if (!$request) {
                 </div>
             </div>
 
-            <!-- Comparison Table: Current vs Requested New Details -->
             <h4 style="margin-top: 15px; color: #990000;">Comparison of Profile Changes:</h4>
             <table class="compare-table">
                 <thead>
@@ -108,7 +98,6 @@ if (!$request) {
                 </tbody>
             </table>
 
-            <!-- Form with AJAX-powered Approve and Reject Buttons -->
             <form action="../Controller/adminHospitalController.php" method="POST" style="margin-top: 25px;">
                 <input type="hidden" name="update_request_id" value="<?php echo htmlspecialchars($request['Update_Request_ID']); ?>">
 
@@ -118,12 +107,10 @@ if (!$request) {
                 </div>
 
                 <div class="btn-actions">
-                    <!-- Approve Edit Button with AJAX -->
                     <button type="button" class="btn btn-approve" onclick="handleApprovalAjax(event, 'approve_edit');">
                         Approve Edit
                     </button>
 
-                    <!-- Reject Edit Button with AJAX -->
                     <button type="button" class="btn btn-reject" onclick="handleApprovalAjax(event, 'reject_edit');">
                         Reject Edit
                     </button>
@@ -136,7 +123,6 @@ if (!$request) {
 
     </div>
 
-    <!-- External AJAX JavaScript -->
     <script src="js/adminAjax.js"></script>
 
 </body>

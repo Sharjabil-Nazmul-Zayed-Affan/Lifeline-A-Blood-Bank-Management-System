@@ -1,12 +1,7 @@
 <?php
-// ==========================================
-// View/adminDashboard.php - Admin Dashboard
-// ==========================================
-
 session_start();
 require_once '../Model/adminModel.php';
 
-// Auth Guard: Check Session or Cookie
 if (!isset($_SESSION['admin_user'])) {
     if (isset($_COOKIE['admin_user'])) {
         $_SESSION['admin_user'] = $_COOKIE['admin_user'];
@@ -18,7 +13,6 @@ if (!isset($_SESSION['admin_user'])) {
 
 $admin = $_SESSION['admin_user'];
 
-// Fetch counts & approved hospital list from Model
 $pendingCreateCount = getPendingCreateCount($conn);
 $pendingEditCount   = getPendingEditCount($conn);
 $approvedHospitals  = getApprovedHospitals($conn);
@@ -33,7 +27,6 @@ $approvedHospitals  = getApprovedHospitals($conn);
 </head>
 <body>
 
-    <!-- Top Navigation Bar -->
     <header class="navbar">
         <h2>Lifeline Admin Dashboard</h2>
         <div class="user-info">
@@ -44,7 +37,6 @@ $approvedHospitals  = getApprovedHospitals($conn);
 
     <div class="container">
 
-        <!-- Notification Box for AJAX and redirects -->
         <div id="ajaxAlert" style="display: none;"></div>
 
         <?php if (isset($_GET['msg'])): ?>
@@ -59,9 +51,7 @@ $approvedHospitals  = getApprovedHospitals($conn);
             </div>
         <?php endif; ?>
 
-        <!-- Approval Navigation Cards with Pending Badges -->
         <div class="action-cards">
-            <!-- 1. Hospital Account Create Approval Button -->
             <div class="action-card">
                 <div>
                     <h3>Hospital Account Creation Approvals</h3>
@@ -77,7 +67,6 @@ $approvedHospitals  = getApprovedHospitals($conn);
                 </div>
             </div>
 
-            <!-- 2. Hospital Edit Approval Button -->
             <div class="action-card">
                 <div>
                     <h3>Hospital Profile Edit Approvals</h3>
@@ -94,14 +83,12 @@ $approvedHospitals  = getApprovedHospitals($conn);
             </div>
         </div>
 
-        <!-- List of Approved Hospitals Table -->
         <div class="card">
             <div class="card-header">
                 <h3>Approved Hospitals List (Active in System)</h3>
                 <span id="totalHospitalCount">Total: <?php echo count($approvedHospitals); ?> Hospitals</span>
             </div>
 
-            <!-- Real-time Search Filter -->
             <div class="search-bar">
                 <input type="text" id="searchHospitalInput" placeholder="Quick Search by Hospital Name, TIN, Phone or Address..." onkeyup="searchHospitals()">
             </div>
@@ -129,7 +116,6 @@ $approvedHospitals  = getApprovedHospitals($conn);
                                 <td><?php echo htmlspecialchars($hospital['H_Phone_Number']); ?></td>
                                 <td><?php echo htmlspecialchars($hospital['H_Address']); ?></td>
                                 <td>
-                                    <!-- AJAX Delete Button without page reload -->
                                     <button type="button" 
                                             class="btn btn-delete" 
                                             onclick="deleteHospitalAjax('<?php echo htmlspecialchars($hospital['H_TIN']); ?>', '<?php echo htmlspecialchars($hospital['H_Name']); ?>', this)">
@@ -145,7 +131,6 @@ $approvedHospitals  = getApprovedHospitals($conn);
 
     </div>
 
-    <!-- External AJAX JavaScript -->
     <script src="js/adminAjax.js"></script>
 
 </body>

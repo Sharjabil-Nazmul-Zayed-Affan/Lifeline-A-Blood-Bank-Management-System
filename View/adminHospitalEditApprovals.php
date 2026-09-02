@@ -1,13 +1,7 @@
 <?php
-// ==========================================
-// View/adminHospitalEditApprovals.php
-// List of Hospital Profile Edit Requests
-// ==========================================
-
 session_start();
 require_once '../Model/adminModel.php';
 
-// Auth Guard
 if (!isset($_SESSION['admin_user'])) {
     if (isset($_COOKIE['admin_user'])) {
         $_SESSION['admin_user'] = $_COOKIE['admin_user'];
@@ -30,7 +24,6 @@ $pendingEditRequests = getPendingEditRequests($conn);
 </head>
 <body>
 
-    <!-- Navbar -->
     <header class="navbar">
         <h2>Lifeline Admin Portal</h2>
         <div class="user-info">
@@ -80,7 +73,6 @@ $pendingEditRequests = getPendingEditRequests($conn);
                                 <td><?php echo htmlspecialchars($req['New_H_Phone_Number']); ?></td>
                                 <td><?php echo htmlspecialchars($req['Request_Date']); ?></td>
                                 <td>
-                                    <!-- View Edit Request Button taking to View Edit Approval Page -->
                                     <a href="adminViewEditApproval.php?id=<?php echo urlencode($req['Update_Request_ID']); ?>" class="btn btn-view">
                                         View Edit Request
                                     </a>
@@ -94,7 +86,6 @@ $pendingEditRequests = getPendingEditRequests($conn);
 
     </div>
 
-    <!-- External AJAX JavaScript -->
     <script src="js/adminAjax.js"></script>
 
 </body>

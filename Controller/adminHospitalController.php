@@ -1,9 +1,4 @@
 <?php
-// ==========================================
-// Controller/adminHospitalController.php
-// Handles Approve, Reject and Delete with AJAX support
-// ==========================================
-
 session_start();
 require_once '../Model/adminModel.php';
 
@@ -11,7 +6,6 @@ $isAjax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTT
           || isset($_REQUEST['ajax']) 
           || (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false);
 
-// Auth Guard: Admin must be logged in
 if (!isset($_SESSION['admin_user'])) {
     if (isset($_COOKIE['admin_user'])) {
         $_SESSION['admin_user'] = $_COOKIE['admin_user'];
@@ -32,7 +26,6 @@ $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 
 switch ($action) {
 
-    // 1. Approve Hospital Creation Request
     case 'approve_create':
         if (isset($_REQUEST['request_id'])) {
             $requestId = intval($_REQUEST['request_id']);
@@ -64,7 +57,6 @@ switch ($action) {
         }
         break;
 
-    // 2. Reject Hospital Creation Request
     case 'reject_create':
         if (isset($_REQUEST['request_id'])) {
             $requestId = intval($_REQUEST['request_id']);
@@ -100,7 +92,6 @@ switch ($action) {
         }
         break;
 
-    // 3. Approve Hospital Profile Edit Request
     case 'approve_edit':
         if (isset($_REQUEST['update_request_id'])) {
             $requestId = intval($_REQUEST['update_request_id']);
@@ -132,7 +123,6 @@ switch ($action) {
         }
         break;
 
-    // 4. Reject Hospital Profile Edit Request
     case 'reject_edit':
         if (isset($_REQUEST['update_request_id'])) {
             $requestId = intval($_REQUEST['update_request_id']);
@@ -168,7 +158,6 @@ switch ($action) {
         }
         break;
 
-    // 5. Delete Hospital and all records via AJAX or standard request
     case 'delete':
         $tin = isset($_REQUEST['tin']) ? trim($_REQUEST['tin']) : '';
         if (!empty($tin)) {

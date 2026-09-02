@@ -1,8 +1,3 @@
-// ==========================================
-// View/js/adminAjax.js - AJAX Operations
-// ==========================================
-
-// Helper to show inline alerts
 function showNotification(message, type = 'success') {
     let alertBox = document.getElementById('ajaxAlert');
     if (!alertBox) {
@@ -17,11 +12,9 @@ function showNotification(message, type = 'success') {
     alertBox.innerHTML = message;
     alertBox.style.display = 'block';
 
-    // Auto scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// 1. AJAX Admin Login
 function handleAdminLogin(event) {
     event.preventDefault();
     const form = event.target;
@@ -63,7 +56,6 @@ function handleAdminLogin(event) {
     return false;
 }
 
-// 2. AJAX Delete Hospital without page reload
 function deleteHospitalAjax(tin, hospitalName, btnElement) {
     const isConfirmed = confirm(`Are you sure you want to delete ${hospitalName} (TIN: ${tin})?\n\nThis will remove all associated blood bags, reservations, and access.`);
     if (!isConfirmed) {
@@ -92,7 +84,6 @@ function deleteHospitalAjax(tin, hospitalName, btnElement) {
         if (data.status === 'success') {
             showNotification(data.message, 'success');
             
-            // Animate and remove table row
             if (row) {
                 row.style.transition = 'all 0.4s ease';
                 row.style.backgroundColor = '#f8d7da';
@@ -118,7 +109,6 @@ function deleteHospitalAjax(tin, hospitalName, btnElement) {
     });
 }
 
-// Helper to update total hospital count in table
 function updateHospitalCount() {
     const tbody = document.querySelector('tbody');
     const countDisplay = document.getElementById('totalHospitalCount');
@@ -132,7 +122,6 @@ function updateHospitalCount() {
     }
 }
 
-// 3. AJAX Handle Approval & Rejection for Create & Edit requests
 function handleApprovalAjax(event, actionType) {
     event.preventDefault();
     const form = event.target.closest('form');
@@ -181,7 +170,6 @@ function handleApprovalAjax(event, actionType) {
     return false;
 }
 
-// 4. Live Search Filter for Approved Hospitals Table
 function searchHospitals() {
     const input = document.getElementById('searchHospitalInput');
     if (!input) return;

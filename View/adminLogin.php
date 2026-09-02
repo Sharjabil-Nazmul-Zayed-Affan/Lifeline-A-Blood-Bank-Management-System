@@ -1,17 +1,11 @@
 <?php
-// ==========================================
-// View/adminLogin.php - Admin Login Page
-// ==========================================
-
 session_start();
 
-// If already logged in, redirect directly to dashboard
 if (isset($_SESSION['admin_user'])) {
     header("Location: adminDashboard.php");
     exit();
 }
 
-// Check if cookie exists to auto-fill username and check Remember Me
 $saved_user = isset($_COOKIE['admin_user']) ? $_COOKIE['admin_user'] : '';
 $is_remembered = !empty($saved_user);
 ?>
@@ -29,10 +23,8 @@ $is_remembered = !empty($saved_user);
         <h2>Admin Login</h2>
         <p class="subtitle">Lifeline Blood Bank Management System</p>
 
-        <!-- Container for AJAX notifications -->
         <div id="ajaxAlert" style="display: none;"></div>
 
-        <!-- Server fallback alerts -->
         <?php if (isset($_GET['error'])): ?>
             <div class="alert alert-error">
                 <?php echo htmlspecialchars($_GET['error']); ?>
@@ -45,7 +37,6 @@ $is_remembered = !empty($saved_user);
             </div>
         <?php endif; ?>
 
-        <!-- AJAX Form submission -->
         <form action="../Controller/adminLoginController.php" method="POST" onsubmit="return handleAdminLogin(event);">
             <div class="form-group">
                 <label for="username">Admin Username</label>
@@ -66,7 +57,6 @@ $is_remembered = !empty($saved_user);
         </form>
     </div>
 
-    <!-- External AJAX JavaScript -->
     <script src="js/adminAjax.js"></script>
 
 </body>

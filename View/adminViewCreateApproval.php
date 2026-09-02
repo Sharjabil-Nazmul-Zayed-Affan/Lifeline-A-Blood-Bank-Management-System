@@ -1,13 +1,7 @@
 <?php
-// ==========================================
-// View/adminViewCreateApproval.php
-// View Details of Hospital Account Approval
-// ==========================================
-
 session_start();
 require_once '../Model/adminModel.php';
 
-// Auth Guard
 if (!isset($_SESSION['admin_user'])) {
     if (isset($_COOKIE['admin_user'])) {
         $_SESSION['admin_user'] = $_COOKIE['admin_user'];
@@ -37,7 +31,6 @@ if (!$request) {
 </head>
 <body>
 
-    <!-- Navbar -->
     <header class="navbar">
         <h2>Lifeline Admin Portal</h2>
         <div class="user-info">
@@ -49,7 +42,6 @@ if (!$request) {
 
     <div class="container">
 
-        <!-- Notification container for AJAX -->
         <div id="ajaxAlert" style="display: none;"></div>
 
         <div class="card">
@@ -58,7 +50,6 @@ if (!$request) {
                 <span class="badge">Status: <?php echo htmlspecialchars($request['Request_Status']); ?></span>
             </div>
 
-            <!-- Hospital Details Grid -->
             <div class="details-grid">
                 
                 <div class="detail-item">
@@ -70,7 +61,6 @@ if (!$request) {
                     <label>TIN Number</label>
                     <p><strong><?php echo htmlspecialchars($request['H_TIN']); ?></strong></p>
                     
-                    <!-- Verify TIN Number Button taking admin to Bangladesh Tax TIN Portal -->
                     <a href="https://secure.incometax.gov.bd/TINHome" target="_blank" class="btn btn-verify">
                         Verify TIN number &rarr;
                     </a>
@@ -98,7 +88,6 @@ if (!$request) {
 
             </div>
 
-            <!-- Form with AJAX-powered Approve and Reject Buttons -->
             <form action="../Controller/adminHospitalController.php" method="POST" style="margin-top: 25px;">
                 <input type="hidden" name="request_id" value="<?php echo htmlspecialchars($request['Request_ID']); ?>">
 
@@ -108,12 +97,10 @@ if (!$request) {
                 </div>
 
                 <div class="btn-actions">
-                    <!-- Approve Button with AJAX -->
                     <button type="button" class="btn btn-approve" onclick="handleApprovalAjax(event, 'approve_create');">
                         Approve Account
                     </button>
 
-                    <!-- Reject Button with AJAX -->
                     <button type="button" class="btn btn-reject" onclick="handleApprovalAjax(event, 'reject_create');">
                         Reject Account
                     </button>
@@ -126,7 +113,6 @@ if (!$request) {
 
     </div>
 
-    <!-- External AJAX JavaScript -->
     <script src="js/adminAjax.js"></script>
 
 </body>
