@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once '../Model/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $checkTin = $conn->query("SELECT H_TIN FROM hospital_registration_request WHERE H_TIN = '$h_tin'");
         
         if ($checkTin && $checkTin->num_rows > 0) {
-            echo "<script>alert('This Hospital TIN is already submitted for registration!'); window.location.href='signup.html';</script>";
+            echo "<script>alert('This Hospital TIN is already submitted for registration!'); window.location.href='../View/signup.html';</script>";
             exit();
         }
 
@@ -31,18 +31,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 VALUES ('$h_tin', '$h_name', '$h_email', '$phone_number', '$h_address', '$request_status', '$request_date')";
 
         if ($conn->query($sql) === TRUE) {
-            echo "<script>alert('Registration Request Submitted Successfully! Pending for admin approval.'); window.location.href='login.html';</script>";
+            echo "<script>alert('Registration Request Submitted Successfully!'); window.location.href='../View/login.html';</script>";
             exit();
         } else {
             echo "Database Insert Error: " . $conn->error;
         }
 
     } else {
-        echo "<script>alert('Please fill in all required fields!'); window.location.href='signup.html';</script>";
+        echo "<script>alert('Please fill in all required fields!'); window.location.href='../View/signup.html';</script>";
         exit();
     }
 } else {
-    header("Location: signup.html");
+    header("Location: ../View/signup.html");
     exit();
 }
 ?>

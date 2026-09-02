@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once '../Model/db.php';
 
 if (!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true) {
     header("Location: login.html");
@@ -28,10 +28,10 @@ $hospital_name = $_SESSION['hospital_name'] ?? '';
                 <a href="dashboard.php">Dashboard</a>
                 <a href="editprofile.php" class="active">Edit Profile</a>
                 <a href="donorlist.php">Donor List</a>
-                <a href="logout.php">Logout</a>
+                <a href="../Controller/logout.php">Logout</a>
             </div>
 
-            <form action="editprofileValidation.php" method="POST">
+            <form action="../Controller/editprofileValidation.php" method="POST">
                 <input type="hidden" name="hospital_tin" value="<?php echo htmlspecialchars($hospital_tin); ?>">
                 <table>
                     <tr>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once '../Model/db.php';
 
 if (!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true) {
     header("Location: login.html");
@@ -55,7 +55,7 @@ $result = $conn->query($sql);
                 <a href="dashboard.php">Dashboard</a>
                 <a href="editprofile.php">Edit Profile</a>
                 <a href="donorlist.php" class="active">Donor List</a>
-                <a href="logout.php">Logout</a>
+                <a href="../Controller/logout.php">Logout</a>
             </div>
 
             <table>
@@ -93,7 +93,7 @@ $result = $conn->query($sql);
                                 <td><?php echo htmlspecialchars($row['TotalBags'] ?? 0); ?></td>
                                 <td><?php echo htmlspecialchars($row['LastDate'] ?? 'N/A'); ?></td>
                                 <td>
-                                    <a href="issueBag.php?username=<?php echo urlencode($uname); ?>" 
+                                    <a href="../Controller/issueBag.php?username=<?php echo urlencode($uname); ?>" 
                                        class="btn-issue" 
                                        onclick="return confirm('Do you want to deduct 1 blood bag?');">-1 Bag</a>
 

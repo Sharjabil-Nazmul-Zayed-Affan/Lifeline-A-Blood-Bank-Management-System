@@ -1,14 +1,11 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once '../Model/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    $tin = trim($_POST['tin'] ?? $_POST['hospitalTIN'] ?? '');
+    $tin = mysqli_real_escape_string($conn, $_POST['hospital_tin'] ?? '');
 
     if (!empty($tin)) {
-        $tin = mysqli_real_escape_string($conn, $tin);
-        
         $sql = "SELECT * FROM hospital WHERE H_TIN = '$tin'";
         $result = $conn->query($sql);
 
@@ -18,19 +15,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['isLoggedIn'] = true;
             $_SESSION['hospital_tin'] = $row['H_TIN'];
             $_SESSION['hospital_name'] = $row['H_Name'];
-
-            header("Location: dashboard.php");
+            
+            header("Location: ../View/dashboard.php");
             exit();
         } else {
-            echo "<script>alert('Hospital TIN not found or not approved yet!'); window.location.href='login.html';</script>";
+            echo "<script>alert('Hospital TIN not found!'); window.location.href='../View/login.html';</script>";
             exit();
         }
     } else {
-        echo "<script>alert('Please enter Hospital TIN!'); window.location.href='login.html';</script>";
+        echo "<script>alert('Please enter Hospital TIN!'); window.location.href='../View/login.html';</script>";
         exit();
     }
 } else {
-    header("Location: login.html");
+    header("Location: ../View/login.html");
     exit();
 }
 ?>

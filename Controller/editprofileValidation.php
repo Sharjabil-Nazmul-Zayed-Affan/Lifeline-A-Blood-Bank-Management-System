@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once '../Model/db.php';
 
 if (!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true) {
-    header("Location: login.html");
+    header("Location: ../View/login.html");
     exit();
 }
 
@@ -19,18 +19,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($conn->query($sql) === TRUE) {
             $_SESSION['hospital_name'] = $hospital_name;
-            echo "<script>alert('Profile updated successfully!'); window.location.href='dashboard.php';</script>";
+            echo "<script>alert('Profile updated successfully!'); window.location.href='../View/dashboard.php';</script>";
             exit();
         } else {
-            echo "<script>alert('Failed to update profile: " . $conn->error . "'); window.location.href='editprofile.php';</script>";
+            echo "<script>alert('Failed to update profile: " . $conn->error . "'); window.location.href='../View/editprofile.php';</script>";
             exit();
         }
     } else {
-        echo "<script>alert('Please fill in all required fields!'); window.location.href='editprofile.php';</script>";
+        echo "<script>alert('Please fill in all required fields!'); window.location.href='../View/editprofile.php';</script>";
         exit();
     }
 } else {
-    header("Location: dashboard.php");
+    header("Location: ../View/dashboard.php");
     exit();
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once '../Model/db.php';
 
 if (!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true) {
     header("Location: login.html");
@@ -42,14 +42,14 @@ $hospital_name = $_SESSION['hospital_name'] ?? 'Hospital';
                 <a href="dashboard.php" class="active">Dashboard</a>
                 <a href="editprofile.php">Edit Profile</a>
                 <a href="donorlist.php">Donor List</a>
-                <a href="logout.php">Logout</a>
+                <a href="../Controller/logout.php">Logout</a>
             </div>
 
             <div style="margin-bottom: 20px;">
                 Welcome, <strong><?php echo htmlspecialchars($hospital_name); ?></strong> (TIN: <?php echo htmlspecialchars($hospital_tin); ?>)
             </div>
 
-            <form action="dashboardAction.php" method="POST">
+            <form action="../Controller/dashboardAction.php" method="POST">
                 <table>
                     <tr>
                         <td class="bold">Blood Group:</td>

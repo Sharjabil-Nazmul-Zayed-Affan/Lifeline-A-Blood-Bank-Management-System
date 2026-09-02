@@ -1,13 +1,12 @@
 <?php
 session_start();
-require_once 'db.php';
+require_once '../Model/db.php';
 
 $patientId = $_POST["patientId"] ?? "";
 $action = $_POST["action"] ?? "";
 
 if (!empty($patientId) && $action === "deletePatient") {
-    // Delete patient using P_Username[cite: 1]
-    $sql = "DELETE FROM patient WHERE P_Username = '$patientId'"; //[cite: 1]
+    $sql = "DELETE FROM patient WHERE P_Username = '$patientId'";[cite: 1, 18]
     $conn->query($sql);
 }
 
