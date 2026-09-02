@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Login</title>
+    <link rel="stylesheet" href="loginstyle.css?v=3.0">
+</head>
+<body>
+
+    <div class="login-container">
+        <form action="loginValidation.php" method="POST">
+            <fieldset>
+                <legend>Hospital Login</legend>
+                
+                <div class="form-group">
+                    <label for="tin">Hospital TIN:</label>
+                    <input type="text" id="tin" name="tin" placeholder="Enter Hospital TIN" required />
+                </div>
+
+                <div class="btn-container">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <a href="signup.html" class="btn btn-secondary">Sign Up</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+</html>
