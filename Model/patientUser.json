@@ -1,0 +1,38 @@
+[
+    {
+        "username": "jahan01",
+        "password": "$2y$10$kFrdFJUl4zzGtxKMthErueJv2nbSENIOiqQt2hatCnfwsrYc4RfqO",
+        "name": "Jahan Alam",
+        "dob": "2001-08-20",
+        "gender": "Male",
+        "bloodGroup": "A+",
+        "phone": "01898765432",
+        "address": "Chittagong",
+        "email": "jahan@gmail.com",
+        "image": null
+    },
+    {
+        "username": "shihabh",
+        "password": "$2y$10$PgmeayuacA5ynr5qwUBQY.rvePhBPp2zwr3Ys2q7aMrmSzUCArvay",
+        "name": "Shihab H",
+        "dob": null,
+        "gender": "Male",
+        "bloodGroup": "O+",
+        "phone": "01794569614",
+        "address": "Kuratoli",
+        "email": "shihabz0098@gmail.com",
+        "image": "patient_1787795987_9267.jpg"
+    },
+    {
+        "username": "pro",
+        "password": "$2y$10$ehBCERf2GMmeAAbxeEJuseGH5\/X0QEfnjVL4h059z.BmHlJLt\/um6",
+        "name": "protysy",
+        "dob": null,
+        "gender": "Male",
+        "bloodGroup": "A+",
+        "phone": "01794569653",
+        "address": "Kuratoli,kk",
+        "email": "protayadocgwp25@gmail.com",
+        "image": null
+    }
+]
