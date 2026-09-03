@@ -5,7 +5,7 @@ function getDBConnection() {
     static $conn = null;
     if ($conn === null) {
         $host = '127.0.0.1';
-        $db   = 'life_line';
+        $db   = ' lifeline: a blood bank mangement system';
         $user = 'root';
         $pass = '';
         $charset = 'utf8mb4';
