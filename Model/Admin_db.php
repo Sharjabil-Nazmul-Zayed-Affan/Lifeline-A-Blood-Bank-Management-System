@@ -2,7 +2,7 @@
 $host     = "localhost";
 $user     = "root";
 $password = "";
-$dbname   = "lifeline";
+$dbname   = " lifeline: a blood bank mangement system";
 
 $conn = mysqli_connect($host, $user, $password, $dbname);
 
