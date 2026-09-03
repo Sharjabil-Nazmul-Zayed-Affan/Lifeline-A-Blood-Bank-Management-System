@@ -1,0 +1,20 @@
+@import url("patientDashboard.css");
+@import url("patientReserveBlood.css");
+
+/* Standalone My Reservations page (not paired with the reserve form) */
+.reservations-page {
+    max-height: none;
+    overflow-y: visible;
+}
+
+.res-hospital {
+    font-size: 12px;
+    color: var(--ink, #1e293b);
+    padding: 8px 0;
+    border-top: 1px dashed var(--border);
+    margin-top: 4px;
+}
+
+.res-hospital-location {
+    color: var(--muted);
+}

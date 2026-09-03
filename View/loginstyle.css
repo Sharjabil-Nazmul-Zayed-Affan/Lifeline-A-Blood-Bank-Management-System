@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f8f9fa !important;
+    color: #333333 !important;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-container {
+    background: #ffffff !important;
+    border-radius: 8px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.15);
+    border-top: 5px solid #dc3545;
+}
+
+fieldset {
+    border: 2px solid #dc3545 !important;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #ffffff !important;
+}
+
+legend {
+    font-size: 20px;
+    font-weight: bold;
+    color: #dc3545 !important;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333333 !important;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333333 !important;
+    background-color: #ffffff !important;
+}
+
+input:focus {
+    border-color: #dc3545;
+    outline: none;
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.3);
+}
+
+.btn-container {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    flex: 1;
+    text-align: center;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover {
+    background-color: #bb2d3b !important;
+}
+
+.btn-secondary {
+    background-color: #6c757d !important;
+    color: #ffffff !important;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268 !important;
+}

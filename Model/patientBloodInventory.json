@@ -1,0 +1,44 @@
+[
+    {
+        "id": "BB001",
+        "bloodGroup": "A+",
+        "hospitalName": "Dhaka Medical College Hospital",
+        "location": "Dhaka",
+        "quantity": 2
+    },
+    {
+        "id": "BB002",
+        "bloodGroup": "O+",
+        "hospitalName": "Square Hospital",
+        "location": "Dhaka",
+        "quantity": 1
+    },
+    {
+        "id": "BB003",
+        "bloodGroup": "B+",
+        "hospitalName": "Chittagong General Hospital",
+        "location": "Chittagong",
+        "quantity": 5
+    },
+    {
+        "id": "BB004",
+        "bloodGroup": "AB-",
+        "hospitalName": "Ibn Sina Hospital",
+        "location": "Dhaka",
+        "quantity": 2
+    },
+    {
+        "id": "BB005",
+        "bloodGroup": "O-",
+        "hospitalName": "Apollo Hospital",
+        "location": "Dhaka",
+        "quantity": 6
+    },
+    {
+        "id": "BB006",
+        "bloodGroup": "A-",
+        "hospitalName": "Chittagong General Hospital",
+        "location": "Chittagong",
+        "quantity": 4
+    }
+]

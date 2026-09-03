@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Login</title>
+    <link rel="stylesheet" href="loginstyle.css">
+</head>
+<body>
+
+    <div class="cntr">
+        <fieldset>
+            <legend>Hospital Login</legend>
+
+            <form action="../Controller/loginvalidation.php" method="POST">
+                <table>
+                    <tr>
+                        <td class="bold">Hospital TIN:</td>
+                        <td><input type="text" name="hospital_tin" placeholder="Enter Hospital TIN" required /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center; padding-top: 15px;">
+                            <button type="submit">Login</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center; padding-top: 10px;">
+                            Don't have an account? <a href="signup.html">Sign Up</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </fieldset>
+    </div>
+
+</body>
+</html>
