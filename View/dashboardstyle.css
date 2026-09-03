@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333333;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.cntr {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 25px;
+    width: 100%;
+    max-width: 1000px;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.1);
+    color: #333333;
+    border-top: 5px solid #dc3545;
+}
+
+fieldset {
+    border: 2px solid #dc3545;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+legend {
+    font-size: 22px;
+    font-weight: bold;
+    color: #dc3545;
+    padding: 0 10px;
+}
+
+.nav-links {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f1f3f5;
+}
+
+.nav-links a {
+    color: #dc3545;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 20px;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background-color: #dc3545;
+    color: #ffffff !important;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #ffffff;
+}
+
+table th {
+    background-color: #dc3545;
+    color: #ffffff;
+    padding: 12px;
+    text-align: left;
+    font-size: 15px;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #e9ecef;
+    color: #333333;
+    font-size: 14px;
+}
+
+table tr:nth-child(even) {
+    background-color: #fff8f8;
+}
+
+table tr:hover {
+    background-color: #f1f3f5;
+}
+
+.bold {
+    font-weight: bold;
+    color: #333333;
+}
+
+input[type="text"], input[type="number"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: #dc3545;
+    outline: none;
+}
+
+button, .btn {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover, .btn:hover {
+    background-color: #bb2d3b;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #ffffff !important;
+    padding: 6px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    display: inline-block;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #a71d2a;
+}

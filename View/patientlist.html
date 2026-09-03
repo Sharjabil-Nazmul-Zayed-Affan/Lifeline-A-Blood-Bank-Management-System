@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Patient List</title>
+        <link rel="stylesheet" type="text/css" href="patientliststyle.css">
+    </head>
+    <body>
+        <div class="background"></div>
+        <div class="cntr">
+            <fieldset>
+                <legend>Patient List</legend>
+                <form action="patientlist.php" method="post">
+                    <table>
+                        <tr>
+                            <td><h5> </h5></td>
+                            <td class="bold">Patient Username:</td>
+                            <td><input type="text" name="patientId" id="PatientId" placeholder="Enter Patient Username"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: center; padding-top: 15px;">
+                                <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                                    <button type="submit" name="action" value="deletePatient" style="margin: 0; display: inline-block;">Delete Patient</button>
+                                    <a href="dashboard.php" style="text-decoration: none; display: inline-block;">
+                                        <button type="button" style="margin: 0; display: inline-block;">Back to Dashboard</button>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </fieldset>
+        </div>
+    </body>
+</html>
