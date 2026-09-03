@@ -1,5 +1,5 @@
 <?php
-require_once 'adminDb.php';
+require_once 'Admin_db.php';
 
 function checkAdminLogin($conn, $username, $password) {
     $username = mysqli_real_escape_string($conn, trim($username));
