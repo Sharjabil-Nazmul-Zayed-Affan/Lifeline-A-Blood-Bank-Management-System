@@ -1,0 +1,14 @@
+[
+    {
+    "username": "John Doe",
+    "email": "john@example.com",
+    "phone": "01712345678",
+    "password": "hashed-password",
+    "bloodGroup": "B+",
+    "gender": "Male",
+    "address": "Dhaka, Bangladesh",
+    "file": "../uploads/patient_12345.png",
+    "role": "patient",
+    "timestamp": 1780000000
+}
+]

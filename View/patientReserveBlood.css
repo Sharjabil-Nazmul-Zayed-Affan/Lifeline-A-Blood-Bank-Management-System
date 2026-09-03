@@ -1,0 +1,349 @@
+@import url("patientDashboard.css");
+
+.reserve-page-single {
+    max-width: 640px;
+}
+
+.reservation-container {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.reservation-header p {
+    color: var(--brand-red);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin: 0 0 4px;
+}
+
+.reservation-header h1 {
+    margin: 0 0 6px;
+    font-size: 20px;
+}
+
+.reservation-header span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.error-box {
+    background: #fdecea;
+    color: var(--brand-red-dark);
+    border: 1px solid #f5c2c7;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin: 16px 0;
+}
+
+.reservation-form {
+    margin-top: 18px;
+}
+
+.reservation-form .form-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.reservation-form label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.reservation-form input,
+.reservation-form select,
+.reservation-form textarea {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    width: 100%;
+    background: #fff;
+}
+
+.reservation-form select {
+    cursor: pointer;
+}
+
+.reservation-form textarea {
+    resize: vertical;
+}
+
+.reservation-form .error {
+    color: var(--brand-red-dark);
+    font-size: 12px;
+    margin: 6px 0 0;
+}
+
+.help-text {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+.notice {
+    background: var(--warning-bg, #fff8e1);
+    color: var(--warning, #b78103);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    font-size: 12px;
+}
+
+.notice strong {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.notice p {
+    margin: 0;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.reserve-button {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    background: var(--brand-red, #dc2626);
+    color: #fff;
+}
+
+.reserve-button:hover {
+    background: var(--brand-red-dark, #b91c1c);
+}
+
+/* RIGHT SECTION: MY RESERVATIONS */
+.reservations-section {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+}
+
+.reservations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.reservations-header .sub-label {
+    color: var(--brand-red);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin: 0 0 4px;
+}
+
+.reservations-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.count-badge {
+    background: var(--bg-soft, #f4f6f8);
+    color: var(--ink, #1e293b);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.empty-reservations {
+    text-align: center;
+    padding: 40px 16px;
+    color: var(--muted);
+}
+
+.empty-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--border);
+}
+
+.empty-reservations h3 {
+    margin: 0 0 6px;
+    color: var(--ink);
+    font-size: 16px;
+}
+
+.empty-reservations p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.reservations-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.res-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    background: var(--bg-soft, #f8fafc);
+}
+
+.res-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.res-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.res-blood-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--brand-red, #dc2626);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.res-details {
+    flex: 1;
+}
+
+.res-details h4 {
+    margin: 0 0 2px;
+    font-size: 14px;
+}
+
+.res-bags {
+    margin: 0;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.res-status .badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.badge-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge-approved {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.res-card-dates {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border);
+    font-size: 12px;
+}
+
+.date-item.highlight {
+    color: var(--brand-red-dark, #b91c1c);
+}
+
+.date-item .date-lbl {
+    color: var(--muted);
+    margin-right: 4px;
+}
+
+/* Success page elements */
+.success-container {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 50px 24px;
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #d1fae5;
+    color: #065f46;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.success-container h2 {
+    margin: 0 0 10px;
+}
+
+.success-container p {
+    color: var(--muted);
+    margin: 0 0 24px;
+}
+
+.success-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    text-align: left;
+    background: var(--bg-soft, #f8fafc);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 24px;
+}
+
+.success-summary span {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 4px;
+}
+
+.success-summary strong {
+    font-size: 14px;
+}
+
+.cancel-button {
+    background: var(--bg-soft, #f8fafc);
+    color: var(--ink, #1e293b);
+    border: 1px solid var(--border);
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+}
